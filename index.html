@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio</title>
+  <style>
+    
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+
+    header {
+      background-color: #4CAF50;
+      padding: 10px;
+    }
+
+    header .nav-links {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      padding: 0;
+    }
+
+    header .nav-links li {
+      margin: 0 15px;
+    }
+
+    header .nav-links a {
+      color: white;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .section {
+      display: none;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .section.active {
+      display: block;
+    }
+
+    footer {
+      text-align: center;
+      padding: 10px;
+      background-color: #4CAF50;
+      color: white;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      color: white;
+      background-color: #4CAF50;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+    
+  <header>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#" data-section="home">Home</a></li>
+        <li><a href="#" data-section="about">About</a></li>
+        <li><a href="#" data-section="resume">Resume</a></li>
+      </ul>
+    </nav>
+  </header>
+  
+  <main>
+    <!-- Home Section -->
+    <section id="home" class="section active">
+      <h1>Welcome to My Portfolio</h1>
+      <p>Hi, I'm Pavan, a passionate developer eager to build innovative solutions.</p>
+      <a href="#" class="btn" data-section="resume">View Resume</a>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+      <h1>About Me</h1>
+      <p>Hello! My name is Pavan. I'm a software developer with a keen interest in web technologies and user experience design.</p>
+      <p>Skills: HTML, CSS, JavaScript, Python, Sql, Power BI.</p>
+    </section>
+
+    <!-- Resume Section -->
+     
+    <section id="resume" class="section">
+      <h1> My Resume</h1>
+      <h2>Work Experience</h2>
+      <ul>
+        <li>Data scientist at Accenture(2020–Present)</li>
+        <li> Junior Software Developer at TCS(2018–2019)</li>
+      </ul>
+      <h2>Education</h2>
+      <ul>
+        <li>Bachelor's in Computer Science, Bapuji engineering college (2013–2017)</li>
+
+      </ul>
+    
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2024 Pavan. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // JavaScript for Navigation
+    document.addEventListener("DOMContentLoaded", () => {
+      const links = document.querySelectorAll("a[data-section]");
+      const sections = document.querySelectorAll(".section");
+
+      links.forEach(link => {
+        link.addEventListener("click", (e) => {
+          e.preventDefault();
+          const target = link.getAttribute("data-section");
+
+          sections.forEach(section => {
+            section.classList.remove("active");
+            if (section.id === target) {
+              section.classList.add("active");
+            }
+          });
+        });
+      });
+    });
+  </script>
+</body>
+</html>
